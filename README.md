@@ -1,6 +1,7 @@
-# LeetCode Clone
+# ![leetcode](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/7cb6e342-4c31-4312-b56a-25fdbebcee7c)  LeetCode Clone
 
 hosted Link:
+
 
 # Getting Started with Create React App
 
