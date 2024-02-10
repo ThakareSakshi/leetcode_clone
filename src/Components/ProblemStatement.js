@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { UseDispatch, useDispatch, useSelector } from "react-redux";
 import { problemDesc } from "../Data/ProblemsDescription";
+import { AiFillLike, AiFillDislike, AiOutlineLoading3Quarters, AiFillStar } from "react-icons/ai";
 import Example from "./Example";
 import { toast } from "react-toastify";
 import {
@@ -257,11 +258,11 @@ const ProblemStatement = ({ id }) => {
           {data[0].difficulty}
         </span>
         <span onClick={LikeQuestion} className="text-gray-400">
-          <i className="fa-solid fa-thumbs-up text-gray-400"></i>{" "}
+          {Udata.liked? <i className="fa-solid fa-thumbs-up text-blue-800"></i>:<i className="fa-solid fa-thumbs-up text-gray-400"></i>}{" "}
           {AllProblemsData.like}
         </span>
         <span onClick={disLikeQuestion} className="text-gray-400">
-          <i className="fa-solid fa-thumbs-down text-gray-400"></i>{" "}
+         { Udata.disliked? <i className="fa-solid fa-thumbs-down text-blue-800"></i>:<i className="fa-solid fa-thumbs-down text-gray-400"></i>}{" "}
           {AllProblemsData.dislike}
         </span>
       </div>
