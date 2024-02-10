@@ -1,8 +1,14 @@
-# LeetCode Clone
+# ![leetcode](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/7cb6e342-4c31-4312-b56a-25fdbebcee7c)  LeetCode Clone
+Checkout Project Here:[click here](https://leetcode-clone-five.vercel.app/)
 
-hosted Link:
+## Tech Stack Used:
 
-# Getting Started with Create React App
+- ReactJS
+- TailwindCSS
+- Firebase
+- Judge0
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
