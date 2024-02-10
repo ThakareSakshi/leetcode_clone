@@ -172,7 +172,7 @@ const ProblemStatement = ({ id }) => {
             });
             dispatch(
               setAllProblemsData(
-                {...AllProblemsData, dislike:parseInt( AllProblemsData.like )+ 1 }
+                {...AllProblemsData, like:parseInt( AllProblemsData.like )+ 1 }
               )
             );
             setUData((prev) => ({ ...prev, liked: true }));
