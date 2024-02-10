@@ -168,7 +168,7 @@ const ProblemStatement = ({ id }) => {
               ],
             });
             transaction.update(problemRef, {
-              dislike: parseInt(problemDoc.data().dislike) + 1,
+             like: parseInt(problemDoc.data().like) + 1,
             });
             dispatch(
               setAllProblemsData(
