@@ -57,9 +57,9 @@ const CompilerHeader = () => {
   }, [isRunning, time]);
 
 
-  const hours = Math.floor(time/360);
-  const minutes = Math.floor(time/60);
-  const seconds = Math.floor(time%60);
+  const hours = Math.floor(time / 360000);
+  const minutes = Math.floor((time % 360000) / 6000);
+  const seconds = Math.floor((time % 6000) / 100);
 
 
   const resetTimer=()=>{
