@@ -4,7 +4,9 @@ import { auth } from '../Data/firebase'
 import { createUserWithEmailAndPassword,updateProfile } from 'firebase/auth'
 import { UseDispatch, useDispatch } from 'react-redux'
 import { setCurrentUser } from '../store/AuthSlice'
+import { doc,setDoc ,getFirestore} from 'firebase/firestore'
 import 'firebase/database'
+import app from '../Data/firebase'
 
 
 
@@ -15,7 +17,7 @@ const SignupPage = () => {
     const password=useRef("");
     const dispatch=useDispatch();
     const navigate=useNavigate();
-  
+    const firestore=getFirestore(app)
   
     const onRegisterHandler=async()=>{
       try{
@@ -26,6 +28,18 @@ const SignupPage = () => {
              
              const user=res.user; 
              if(user){
+              const userData = {
+                uid: res.user.uid,
+                email: res.user.email,
+                displayName: name.current.value,
+                createdAt: Date.now(),
+                updatedAt: Date.now(),
+                likedProblems: [],
+                dislikedProblems: [],
+                solvedProblems: [],
+                starredProblems: [],
+              };
+              await setDoc(doc(firestore, "users", res.user.uid), userData);
                 navigate("/login");
              }
              console.log(user)
