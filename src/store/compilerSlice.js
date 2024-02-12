@@ -6,8 +6,10 @@ export  const compilerSlice=createSlice(
        initialState:{
         inputCode:"",
         outputCode:"",
-        currentProblem:1,
-        AllProblemsData:[]
+        currentProblem:4,
+        AllProblemsData:[],
+        isSuccess:false,
+        stdOutput:""
        },
        reducers:{
 
@@ -22,6 +24,13 @@ export  const compilerSlice=createSlice(
         },
         setAllProblemsData:(state,action)=>{
           state.AllProblemsData=action.payload
+        },
+        setIsSuccess:(state,action)=>{
+          state.isSuccess=action.payload
+        }
+        ,
+        setStdOutput:(state,action)=>{
+          state.stdOutput=action.payload
         }
         
 
@@ -29,5 +38,5 @@ export  const compilerSlice=createSlice(
     }
 )
 
-export const {setInputCode,setCurrentProblem,setOutputCode,setAllProblemsData}=compilerSlice.actions;
+export const {setInputCode,setCurrentProblem,setOutputCode,setAllProblemsData,setIsSuccess,setStdOutput}=compilerSlice.actions;
 export default compilerSlice.reducer;

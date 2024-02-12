@@ -29,7 +29,13 @@ export const problemDesc=[
             {
                 desc:"-109 <= target <= 109"
             }
-        ]
+        ],
+        defaultCode:`function TwoSum(nums,target){
+
+        }
+        console.log(TwoSum([2,7,11,15],9))`,
+        stdOutput:"[ 0, 1 ]\n"
+        
         
     },
     {
@@ -62,7 +68,13 @@ export const problemDesc=[
             {
                 desc:"It is guaranteed that the list represents a number that does not have leading zeros."
             }
-        ]
+        ],
+        defaultCode:`var addTwoNumbers = function(l1, l2) {
+    
+        };
+        
+        console.log(addTwoNumbers([2,4,3],[5,6,4]))`,
+        stdOutput:"[7,0,8]\n"
         
         
     },
@@ -94,7 +106,15 @@ export const problemDesc=[
                 desc:"s consists of English letters, digits, symbols and spaces."
             },
            
-        ]
+        ],
+       
+        defaultCode:`var lengthOfLongestSubstring = function(s) {
+    
+        };
+        console.log(lengthOfLongestSubstring('abcabcbb'))`,
+        stdOutput:"3"
+        
+        
         
     },
     {
@@ -134,7 +154,12 @@ export const problemDesc=[
                 desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
             },
            
-        ]
+        ],
+        defaultCode:`var findMedianSortedArrays = function(nums1, nums2) {
+    
+        };
+        console.log(findMedianSortedArrays([1,3],[2]))`,
+        stdOutput:"2.00000"
         
     },
     {
@@ -143,38 +168,32 @@ export const problemDesc=[
         difficulty:"Medium",
         solution:"",
         topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        description:'Given a string s, return the longest palindromic substring in s.',
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:`s = "babad"`,
+               output:`"bab"`
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:'s = "cbbd"',
+                output:`"bb"`
              },
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"1 <= s.length <= 1000"
             }
             ,{
-                desc:"nums2.length == n"
+                desc:"s consist of only digits and English letters."
             },
-            ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
+            
            
-        ]
+        ],
+        defaultCode:`var longestPalindrome = function(s) {
+    
+        };
+        console.log(longestPalindrome("babad"))`,
+        stdOutput:"bab"
         
     },
     {
@@ -183,38 +202,35 @@ export const problemDesc=[
         difficulty:"Medium",
         solution:"",
         topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        description:`Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+        Assume the environment does not allow you to store 64-bit integers (signed or unsigned).`,
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:"x = 123",
+               output:"321"
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:' x = -123',
+                output:"-321"
              },
+             {
+                input:"x=120",
+                output:"21"
+             }
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"-2^31 <= x <= 2^31 - 1"
             }
-            ,{
-                desc:"nums2.length == n"
-            },
-            ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
+            
            
         ]
+        ,defaultCode:`var reverse = function(x) {
+    
+        };
+        console.log(reverse(123))`,
+        stdOutput:"321"
         
     },
     {
@@ -222,39 +238,34 @@ export const problemDesc=[
         title:"7. Palindrome Number",
         difficulty:"Easy",
         solution:"",
-        topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        topics:["Math"],
+        description:'Given an integer x, return true if x is a palindrome, and false otherwise.',
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:"x = 121",
+               output:"true"
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:'x = -121',
+                output:"false"
              },
+             {
+                input:"x = 10",
+                output:"false"
+             }
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"-231 <= x <= 231 - 1"
             }
-            ,{
-                desc:"nums2.length == n"
-            },
-            ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
            
-        ]
+           
+        ],
+        defaultCode:`var isPalindrome = function(x) {
+    
+        };
+        console.log(isPalindrome(121))`,
+        stdOutput:"true"
         
     },
     {
@@ -262,79 +273,89 @@ export const problemDesc=[
         title:"8. Container With Most Water",
         difficulty:"Medium",
         solution:"",
-        topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        topics:["array","two pointer","greedy"],
+        description:`You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+        Find two lines that together with the x-axis form a container, such that the container contains the most water.
+        
+        Return the maximum amount of water a container can store.
+        
+        Notice that you may not slant the container.`,
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:"height = [1,8,6,2,5,4,8,3,7]",
+               output:"49"
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:'height = [1,1]',
+                output:"1"
              },
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"n == height.length"
             }
             ,{
-                desc:"nums2.length == n"
+                desc:"2 <= n <= 105"
             },
             ,{
-                desc:"0 <= m <= 1000"
+                desc:"0 <= height[i] <= 104"
             },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
-           
-        ]
+            
+        ],
+        defaultCode:`var maxArea = function(height) {
+    
+        };
+        console.log(maxArea([1,8,6,2,5,4,8,3,7]))`,
+        stdOutput:"49"
         
     },
+    
     {
         id:9,
-        title:"9. Integer to Roman",
-        difficulty:"Easy",
+        title:"9.  Integer to Roman",
+        difficulty:"Medium",
         solution:"",
-        topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        topics:["Hash Table","String","Math"],
+        description:`Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+        Symbol       Value
+        I             1
+        V             5
+        X             10
+        L             50
+        C             100
+        D             500
+        M             1000
+        For example, 2 is written as II in Roman numeral, just two one's added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+        
+        Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+        
+        I can be placed before V (5) and X (10) to make 4 and 9. 
+        X can be placed before L (50) and C (100) to make 40 and 90. 
+        C can be placed before D (500) and M (1000) to make 400 and 900.
+        Given an integer, convert it to a roman numeral.`,
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:"num = 3",
+               output:`"III"`
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:'num = 58',
+                output:`"LVIII"`
              },
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"1 <= num <= 3999"
             }
-            ,{
-                desc:"nums2.length == n"
-            },
-            ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
+            
            
-        ]
+        ],defaultCode:`var intToRoman = function(num) {
+    
+        };
+        console.log(intToRoman(3))`,
+        stdOutput:"III"
         
     },
     {
@@ -342,159 +363,128 @@ export const problemDesc=[
         title:"10. Roman to Integer",
         difficulty:"Easy",
         solution:"",
-        topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        topics:["Hash Table","String","Math"],
+        description:`Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+        Symbol       Value
+        I             1
+        V             5
+        X             10
+        L             50
+        C             100
+        D             500
+        M             1000
+        For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+        
+        Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+        
+        I can be placed before V (5) and X (10) to make 4 and 9. 
+        X can be placed before L (50) and C (100) to make 40 and 90. 
+        C can be placed before D (500) and M (1000) to make 400 and 900.
+        Given a roman numeral, convert it to an integer.`,
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:`s = "III"`,
+               output:"3"
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:'s = "LVIII"',
+                output:"58"
              },
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"1 <= s.length <= 15"
             }
             ,{
-                desc:"nums2.length == n"
+                desc:"s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M')."
             },
             ,{
-                desc:"0 <= m <= 1000"
+                desc:"It is guaranteed that s is a valid roman numeral in the range [1, 3999]."
             },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
-           
-        ]
+            
+        ],
+        defaultCode:`
+        var romanToInt = function(s) {
+    
+        };
+        console.log(romanToInt("III"))`,
+        stdOutput:"3"
         
     },
     {
         id:11,
-        title:"14. Longest Common Prefix",
+        title:"11 .Longest Common Prefix",
         difficulty:"Easy",
         solution:"",
         topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
+        description:`Write a function to find the longest common prefix string amongst an array of strings.
+
+        If there is no common prefix, return an empty string "".`,
         examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:`strs = ["flower","flow","flight"]`,
+               output:`"fl"`
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:` strs = ["dog","racecar","car"`,
+                output:`""`
              },
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"1 <= strs.length <= 200"
             }
             ,{
-                desc:"nums2.length == n"
+                desc:"0 <= strs[i].length <= 200"
             },
             ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
+                desc:"strs[i] consists of only lowercase English letters."
             },
            
-        ]
+           
+        ],
+        defaultCode:`var longestCommonPrefix = function(strs) {
+    
+        };
+        console.log(longestCommonPrefix(["flower","flow","flight"]))`,
+        stdOutput:"fl"
         
     },
     {
         id:12,
-        title:"12. Valid Parentheses",
+        title:"12. 3Sum",
         difficulty:"Medium",
         solution:"",
-        topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
-        examples:[
+        topics:["Array"],
+        description:`Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+        Notice that the solution set must not contain duplicate triplets.`,
+          examples:[
             {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
+               input:"nums = [-1,0,1,2,-1,-4]",
+               output:"[[-1,-1,2],[-1,0,1]]"
             },
              {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
+                input:'nums = [0,1,1]',
+                output:"[]"
              },
            ],
         constraints:[
             {
-                desc:"nums1.length == m"
+                desc:"3 <= nums.length <= 3000"
             }
             ,{
-                desc:"nums2.length == n"
-            },
-            ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
+                desc:"-105 <= nums[i] <= 105"
             },
            
-        ]
-        
-    },
-    {
-        id:13,
-        title:"13. 3Sum",
-        difficulty:"Medium",
-        solution:"",
-        topics:["Hash Table","String","Sliding Window"],
-        description:'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.The overall run time complexity should be O(log (m+n)).',
-        examples:[
-            {
-               input:"nums1 = [1,3], nums2 = [2]",
-               output:"2.00000"
-            },
-             {
-                input:'nums1 = [1,2], nums2 = [3,4]',
-                output:"2.50000"
-             },
-           ],
-        constraints:[
-            {
-                desc:"nums1.length == m"
-            }
-            ,{
-                desc:"nums2.length == n"
-            },
-            ,{
-                desc:"0 <= m <= 1000"
-            },
-            ,{
-                desc:"0 <= n <= 1000"
-            },
-            ,{
-                desc:"1 <= m + n <= 2000"
-            },
-            ,{
-                desc:"-10^6 <= nums1[i], nums2[i] <= 10^6 "
-            },
            
         ]
+        ,defaultCode:`var threeSum = function(nums) {
+    
+        };
+        console.log(threeSum([-1,0,1,2,-1,-4]))`,
+        stdOutput:"[[-1,-1,2],[-1,0,1]]",
         
     },
 ]

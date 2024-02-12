@@ -5,14 +5,25 @@ import CompilerHeader from "../Components/CompilerHeader";
 import Split from "react-split";
 import { useParams } from "react-router-dom";
 import TestCases from "../Components/testCases";
+import Confetti from "react-confetti";
+import { useSelector } from "react-redux";
 
 const Editorpage = () => {
   const { problemID } = useParams();
+  const isSuccess=useSelector((state)=>state.compiler.isSuccess);
 
   console.log(problemID);
 
   return (
     <div className="">
+      {
+        isSuccess && <Confetti
+        width={800}
+        height={600}
+        numberOfPieces={200}
+        
+      />
+      }
       <CompilerHeader />
       {/* <div className='flex'> */}
       <Split className="split">

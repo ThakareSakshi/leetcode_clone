@@ -4,10 +4,12 @@ import {  useDispatch, useSelector } from 'react-redux';
 import { setInputCode } from '../store/compilerSlice';
 
 
+
 const Compiler = () => {
 
     const inputCode=useSelector((state)=>state.compiler.inputCode);
     const dispatch=useDispatch();
+    const outputCode=useSelector((state)=>state.compiler.outputCode);
     
 
     
@@ -20,23 +22,22 @@ const Compiler = () => {
       <div className='p-1 bg-[#262626] w-full'>
         <span className='text-white font-normal text-sm px-2'><i className="fa-solid fa-code text-green-500"></i> Code</span>
         <select className='bg-inherit text-gray-400 mx-3'>
-        <option value="62">Java</option>
-          <option value="50">C</option>
-          <option value="54">C++</option>
-          
-          <option value="72">Python</option>
+        <option value="63">Javascript</option>
+         
         </select>
       </div>
-      <Editor
+ 
+  <Editor
         height="50vh"
         width={`100%`}
-        language={"javascript"}
+        language={"java"}
         value={inputCode}
          theme='vs-dark'
-        defaultValue=""
+        defaultValue={" "}
         onChange={changeInputCode}
       
       />
+ 
     
     </div>
   )

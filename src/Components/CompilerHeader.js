@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch,useSelector} from "react-redux";
-import { setCurrentProblem, setOutputCode } from "../store/compilerSlice";
+import { setCurrentProblem, setIsSuccess, setOutputCode } from "../store/compilerSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getFirestore,runTransaction ,doc,
+  getDoc,
+  query} from "firebase/firestore";
+import app from "../Data/firebase";
 
 
 
 
 const CompilerHeader = () => {
+  const db=getFirestore(app)
   const currentProblemId=useSelector((state)=>state.compiler.currentProblem)
   const currentUser=useSelector((state)=>state.auth.currentUser)
   const isLogin=useSelector((state)=>state.auth.isLogin)
   const inputcode=useSelector((state)=>state.compiler.inputCode)
   const outputText=useSelector((state)=>state.compiler.outputCode)
+  const stdOut=useSelector((state)=>state.compiler.stdOutput);
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const [isRunning, setIsRunning] = useState(false);
@@ -61,6 +67,20 @@ const CompilerHeader = () => {
   const minutes = Math.floor((time % 360000) / 6000);
   const seconds = Math.floor((time % 6000) / 100);
 
+  const onSolved=async()=>{
+    await runTransaction(db, async (transaction) => {
+      const userRef = doc(db, "users",currentUser.user.uid );
+      const userDoc = await transaction.get(userRef);
+      if(userDoc.exists()){
+        transaction.update(userRef, {
+          solvedProblems:[ ...userDoc.data().solvedProblems,currentProblemId],
+         
+        });
+      }
+    })
+  
+  }
+
 
   const resetTimer=()=>{
     setTime(0);
@@ -81,8 +101,8 @@ const CompilerHeader = () => {
           },
           body: JSON.stringify({
             source_code: inputcode,
-            stdin: "",
-            language_id:72 ,
+            stdin:"",
+            language_id:63 ,
           }),
         }
       );
@@ -115,12 +135,22 @@ const CompilerHeader = () => {
             },
           });
           jsonGetSolution = await getSolution.json();
+          console.log(jsonGetSolution);
         }
       }
       
       if (jsonGetSolution.stdout) {
         const output = atob(jsonGetSolution.stdout);
-        // outputText.innerHTML = "";
+        console.log(output,stdOut)
+        console.log(output===stdOut)
+        if(output==stdOut){
+          onSolved();
+          dispatch(setIsSuccess(true));
+          setTimeout(()=>{
+            dispatch(setIsSuccess(false))
+          },5000)
+          
+        }
        dispatch(setOutputCode(`Results :\n ${output} \n Execution Time : ${jsonGetSolution.time} Secs \n Memory used : ${jsonGetSolution.memory} bytes`))
       } else if (jsonGetSolution.stderr) {
         const error = atob(jsonGetSolution.stderr);
@@ -128,7 +158,7 @@ const CompilerHeader = () => {
         dispatch(setOutputCode( `\n Error :${error}`))
       } else {
         const compilation_error = atob(jsonGetSolution.compile_output);
-        outputText.innerHTML = "";
+      
         dispatch(setOutputCode(`\n Error :${compilation_error}`));
       }
      };
@@ -153,7 +183,7 @@ const CompilerHeader = () => {
 
       <div className="flex gap-4">
         <button  className="px-2 text-white p-1 rounded-md bg-[#262626]" onClick={RunCode}><i className="fa-solid fa-play"></i> Run</button>
-        <button className="px-2 text-green-700 p-1 rounded-md bg-[#262626]" onClick={submitCode}><i className="fa-solid fa-cloud-arrow-up"></i> Submit</button>
+        <button className="px-2 text-green-700 p-1 rounded-md bg-[#262626]" onClick={RunCode}><i className="fa-solid fa-cloud-arrow-up"></i> Submit</button>
         <button className="px-2 text-gray-500 p-1 rounded-md bg-[#262626] flex items-center gap-2">
           {
             

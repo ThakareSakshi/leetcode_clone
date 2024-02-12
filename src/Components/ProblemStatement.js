@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { problemDesc } from "../Data/ProblemsDescription";
-import { AiFillLike, AiFillDislike, AiOutlineLoading3Quarters, AiFillStar } from "react-icons/ai";
+
 import Example from "./Example";
 import { toast } from "react-toastify";
 import {
@@ -15,24 +15,20 @@ import {
 } from "firebase/firestore";
 import app, { auth } from "../Data/firebase";
 import { getFirestore } from "firebase/firestore";
-import { setAllProblemsData } from "../store/compilerSlice";
+import { setAllProblemsData, setInputCode, setOutputCode, setStdOutput } from "../store/compilerSlice";
+import { setUserData } from "../store/AuthSlice";
 // import { useAuthState } from "react-firebase-hooks";
 
 const ProblemStatement = ({ id }) => {
   const db = getFirestore(app);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.currentUser);
-  const AllProblemsData = useSelector(
-    (state) => state.compiler.AllProblemsData
-  );
-
-  const currentProblemId = useSelector(
-    (state) => state.compiler.currentProblem
-  ).toString();
-
+  const AllProblemsData = useSelector((state) => state.compiler.AllProblemsData );
+  const currentProblemId = useSelector((state) => state.compiler.currentProblem ).toString();
   const isLogin = useSelector((state) => state.auth.isLogin);
-
   const data = problemDesc.filter((data) => data.id == currentProblemId);
+  dispatch(setStdOutput(data[0].stdOutput));
+  
   
   const [color, setColor] = useState("red");
   const [Udata, setUData] = useState({
@@ -43,6 +39,7 @@ const ProblemStatement = ({ id }) => {
   });
 
   useEffect(() => {
+    dispatch(setUserData(Udata));
     try {
       if (data[0].difficulty == "Easy") {
         setColor("green");
@@ -51,12 +48,10 @@ const ProblemStatement = ({ id }) => {
       } else {
         setColor("red");
       }
+      dispatch(setInputCode(data[0].defaultCode))
 
       const getDataFromDb = async () => {
-        const q = query(
-          collection(db, "problems"),
-          where("id", "==", currentProblemId)
-        );
+        const q = query(collection(db, "problems"),where("id", "==", currentProblemId));
 
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
@@ -244,10 +239,16 @@ const ProblemStatement = ({ id }) => {
     } catch (e) {
       console.log("Transaction failed: ", e);
     }
+    dispatch(setUserData(Udata));
   };
 
+ 
+
   return (
-    <div className="w-1/2 bg-[#262626] p-2 m-2 rounded-lg overflow-y-scroll ">
+    <div className="m-2 rounded-lg bg-[#262626] overflow-hidden">
+    <div className="p-1 bg-[#3a3a3a] text-white px-2"> Description</div>
+    <div className=" bg-[#262626] p-2  rounded-lg overflow-y-scroll ">
+      
       <h1 className="text-2xl font-bold text-white m-2">{data[0].title}</h1>
 
       <div className=" flex item-center gap-4 ">
@@ -264,6 +265,11 @@ const ProblemStatement = ({ id }) => {
         <span onClick={disLikeQuestion} className="text-gray-400">
          { Udata.disliked? <i className="fa-solid fa-thumbs-down text-blue-800"></i>:<i className="fa-solid fa-thumbs-down text-gray-400"></i>}{" "}
           {AllProblemsData.dislike}
+        </span>
+        <span>
+          {
+            Udata.solved? <span>solved</span>:null
+          }
         </span>
       </div>
 
@@ -287,7 +293,7 @@ const ProblemStatement = ({ id }) => {
           })}
         </ul>
       </div>
-    </div>
+    </div></div>
   );
 };
 

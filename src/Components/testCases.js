@@ -31,7 +31,7 @@ const TestCases = () => {
          <span>Output:</span>
          <div className='bg-[#262626] rounded-md p-2 my-1'>{data[0].examples[testcase].output}</div>
        </div>
-      <textarea value={outputtext} className='w-full h-40 bg-[#1E1E1E]' readOnly="readOnly"></textarea>
+      <textarea value={outputtext} className='w-full h-40 bg-[#1E1E1E] text-white' readOnly="readOnly"></textarea>
     </div>
   )
 }
