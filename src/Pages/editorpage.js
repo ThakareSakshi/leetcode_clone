@@ -15,7 +15,7 @@ const Editorpage = () => {
   console.log(problemID);
 
   return (
-    <div className="h-full overflow-hidden">
+    <div className="h-full overflow-x-scroll ">
       {
         isSuccess && <Confetti
         width={800}
@@ -25,11 +25,11 @@ const Editorpage = () => {
       />
       }
       <CompilerHeader />
-      {/* <div className='flex'> */}
+     
       <Split className="split">
         <ProblemStatement id={problemID} />
-        <div className="flex flex-col w-1/2">
-          <Split direction="vertical" sizes={[60, 40]}>
+        <div className="flex flex-col w-1/2 min-w-[400px]">
+          <Split direction="vertical" >
             <Compiler />
             <TestCases />
           </Split>

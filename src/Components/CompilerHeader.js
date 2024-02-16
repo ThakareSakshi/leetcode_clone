@@ -25,7 +25,7 @@ const CompilerHeader = () => {
   const [time,setTime]=useState(0);
   const [showTimer,setShowTimer]=useState(false);
  
-
+ console.log(typeof isLogin)
 
   const increment=()=>{
     const count=currentProblemId+1;
@@ -172,7 +172,7 @@ const CompilerHeader = () => {
     }
   }
   return (
-    <div className="p-2 flex justify-between">
+    <div className="p-2 flex justify-between w-full overflow-x-scroll ">
 
       <div className="flex gap-4 items-center text-white font-light">
         <img src="/leetcode.png" className="h-8" />
@@ -204,6 +204,7 @@ const CompilerHeader = () => {
 
       <div>
         {
+         
          isLogin && isLogin==true ? <div className="flex text-white gap-4">{currentUser.user.email}<img className="rounded-full h-8" src="/users.png"/></div>:<span className="px-2 text-white p-1 rounded-md bg-[#262626] cursor-pointer" onClick={redirectToLogin}>Sign-in</span>
         }
       </div>

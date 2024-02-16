@@ -18,7 +18,7 @@ const TestCases = () => {
 
    
   return (
-    <div className='w-full m-2 bg-[#262626] rounded-lg overflow-scroll h-auto'>
+    <div className='w-full m-2 bg-[#262626] rounded-lg overflow-scroll h-auto overflow-x-auto'>
         
        <div className='text-white p-2 bg-[#333333]'><h2 className='text-white font-normal text-sm'><i className="fa-regular fa-square-check text-green-500"></i> Testcase</h2></div>
        {
@@ -36,7 +36,7 @@ const TestCases = () => {
          <span>Output:</span>
          <div className='bg-[#333333] rounded-md p-2 my-1'>{data[0].examples[testcase].output}</div>
        </div>
-      <textarea value={outputtext} className='w-full h-40 bg-[#262626] text-white' readOnly="readOnly"></textarea>
+      <textarea value={outputtext} className='w-full  bg-[#262626] text-white' readOnly="readOnly"></textarea>
     </div>
   )
 }

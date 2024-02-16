@@ -33,7 +33,7 @@ const Compiler = () => {
     });
     },[])
   return (
-    <div className="overlay  overflow-scroll w-full  shadow-4xl m-2 rounded-lg ">
+    <div className="overlay  overflow-scroll w-full  shadow-4xl m-2 rounded-lg min-w-[400px]">
       <div className='p-1 bg-[#333333] w-full'>
         <span className='text-white font-normal text-sm px-2'><i className="fa-solid fa-code text-green-500"></i> Code</span>
         <select className='bg-inherit text-gray-400 mx-3'>
