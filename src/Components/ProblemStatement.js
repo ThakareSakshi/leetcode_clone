@@ -90,7 +90,7 @@ const ProblemStatement = ({ id }) => {
         liked: likedProblems.includes(currentProblemId),
         disliked: dislikedProblems.includes(currentProblemId),
         starred: starredProblems.includes(currentProblemId),
-        solved: solvedProblems.includes(currentProblemId),
+        solved: solvedProblems.includes(parseInt(currentProblemId)),
       });
     }
   };
@@ -246,7 +246,7 @@ const ProblemStatement = ({ id }) => {
 
   return (
     <div className="m-2 rounded-lg bg-[#262626] overflow-hidden">
-    <div className="p-1 bg-[#3a3a3a] text-white px-2"> Description</div>
+    <div className="p-1 bg-[#333333] text-white px-2"> Description</div>
     <div className=" bg-[#262626] p-2  rounded-lg overflow-y-scroll ">
       
       <h1 className="text-2xl font-bold text-white m-2">{data[0].title}</h1>
@@ -268,7 +268,7 @@ const ProblemStatement = ({ id }) => {
         </span>
         <span>
           {
-            Udata.solved? <span>solved</span>:null
+            Udata.solved? <span className="text-white "> <i className="fa-regular fa-circle-check text-green-600"></i> solved</span>:null
           }
         </span>
       </div>

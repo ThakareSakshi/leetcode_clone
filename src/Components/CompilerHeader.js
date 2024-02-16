@@ -149,7 +149,7 @@ const CompilerHeader = () => {
           dispatch(setIsSuccess(true));
           setTimeout(()=>{
             dispatch(setIsSuccess(false))
-          },5000)
+          },10000)
           
         }
        dispatch(setOutputCode(`Results :\n ${output} \n Execution Time : ${jsonGetSolution.time} Secs \n Memory used : ${jsonGetSolution.memory} bytes`))

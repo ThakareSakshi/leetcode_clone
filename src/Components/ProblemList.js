@@ -4,7 +4,8 @@ import ProblemRow from './ProblemRow'
 
 const ProblemList = () => {
   return (
-   <table className='text-white w-2/3 m-5'>
+  <div className=' p-10'>
+     <table className='text-white w-2/3 m-5'>
   <thead>
   <tr className=' m-2  p-5 even:bg-[#2A2A2A]'>
     <th className='text-[#b9b9b9] font-normal text-sm'>status</th>
@@ -20,6 +21,7 @@ const ProblemList = () => {
    }
   </tbody>
    </table>
+  </div>
   )
 }
 

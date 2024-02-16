@@ -20,23 +20,23 @@ const TestCases = () => {
   return (
     <div className='w-full m-2 bg-[#262626] rounded-lg overflow-scroll h-auto'>
         
-       <div className='text-white p-2'><h2 className='text-white font-normal text-sm'><i className="fa-regular fa-square-check text-green-500"></i> Testcase</h2></div>
+       <div className='text-white p-2 bg-[#333333]'><h2 className='text-white font-normal text-sm'><i className="fa-regular fa-square-check text-green-500"></i> Testcase</h2></div>
        {
-          isSuccess? <div className='text-xl font-semibold text-green-700'> Accepted </div>:null
+          isSuccess? <div className='text-xl font-semibold text-green-700 p-2 px-3'> Accepted </div>:null
         }
-       <div className='flex gap-2 bg-[#1E1E1E] p-3'>
+       <div className='flex gap-2 bg-[#262626] p-3'>
         {
           data[0].examples.map((test,index)=>{
              return  <Case index={index} {...test} setTestCase={setTestCase}/> })
         }
        </div>
-       <div className='text-white bg-[#1E1E1E] p-2'>
+       <div className='text-white bg-[#262626] p-2'>
          <span>Input:</span>
-         <div className='bg-[#262626] rounded-md p-2 my-1'>{data[0].examples[testcase].input}</div>
+         <div className='bg-[#333333] rounded-md p-2 my-1'>{data[0].examples[testcase].input}</div>
          <span>Output:</span>
-         <div className='bg-[#262626] rounded-md p-2 my-1'>{data[0].examples[testcase].output}</div>
+         <div className='bg-[#333333] rounded-md p-2 my-1'>{data[0].examples[testcase].output}</div>
        </div>
-      <textarea value={outputtext} className='w-full h-40 bg-[#1E1E1E] text-white' readOnly="readOnly"></textarea>
+      <textarea value={outputtext} className='w-full h-40 bg-[#262626] text-white' readOnly="readOnly"></textarea>
     </div>
   )
 }
