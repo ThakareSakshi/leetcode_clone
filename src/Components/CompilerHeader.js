@@ -86,7 +86,8 @@ const CompilerHeader = () => {
     setTime(0);
   }
   const RunCode=async()=>{
-    if(isLogin == false){
+    console.log(isLogin)
+    if(isLogin== false ){
         toast.error("you must be login to run code",{position:"top-center", autoClose:3000});
     }else{
       const response = await fetch(
@@ -203,7 +204,7 @@ const CompilerHeader = () => {
 
       <div>
         {
-         isLogin=='true' ? <div className="flex text-white gap-4">{currentUser.user.email}<img className="rounded-full h-8" src="/users.png"/></div>:<span className="px-2 text-white p-1 rounded-md bg-[#262626] cursor-pointer" onClick={redirectToLogin}>Sign-in</span>
+         isLogin && isLogin==true ? <div className="flex text-white gap-4">{currentUser.user.email}<img className="rounded-full h-8" src="/users.png"/></div>:<span className="px-2 text-white p-1 rounded-md bg-[#262626] cursor-pointer" onClick={redirectToLogin}>Sign-in</span>
         }
       </div>
     </div>

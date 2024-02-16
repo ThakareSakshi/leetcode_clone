@@ -11,14 +11,19 @@ const TestCases = () => {
     const currentProblem=useSelector((state)=>state.compiler.currentProblem);
     const data=problemDesc.filter((data)=>data.id==currentProblem);
     const outputtext=useSelector((state)=>state.compiler.outputCode);
+    const isSuccess=useSelector((state)=>state.compiler.isSuccess)
     const dispatch=useDispatch();
     const [testcase,setTestCase]=useState(0);
     console.log("data",data)
 
    
   return (
-    <div className='w-full m-2 bg-[#262626] rounded-lg overflow-y-scroll'>
+    <div className='w-full m-2 bg-[#262626] rounded-lg overflow-scroll h-auto'>
+        
        <div className='text-white p-2'><h2 className='text-white font-normal text-sm'><i className="fa-regular fa-square-check text-green-500"></i> Testcase</h2></div>
+       {
+          isSuccess? <div className='text-xl font-semibold text-green-700'> Accepted </div>:null
+        }
        <div className='flex gap-2 bg-[#1E1E1E] p-3'>
         {
           data[0].examples.map((test,index)=>{

@@ -45,7 +45,7 @@ const logout=()=>{
       <div  className="flex">
       
       {
-       isLogin && isLogin=='true'? <div className="flex text-white gap-4">{currentUser.user.email}<img className="rounded-full h-8" src="/users.png"/> <button className="text-orange-500" onClick={logout}><i class="fa-solid fa-right-from-bracket"></i></button></div>:<div className="p-2 text-white bg-slate-800 rounded-md cursor-pointer" onClick={redirectToLogin}>Sign In</div>
+       isLogin ? <div className="flex text-white gap-4">{currentUser.user.email}<img className="rounded-full h-8" src="/users.png"/> <button className="text-orange-500" onClick={logout}><i class="fa-solid fa-right-from-bracket"></i></button></div>:<div className="p-2 text-white bg-slate-800 rounded-md cursor-pointer" onClick={redirectToLogin}>Sign In</div>
       }
       </div>
     </nav>

@@ -15,7 +15,7 @@ const Editorpage = () => {
   console.log(problemID);
 
   return (
-    <div className="">
+    <div className="h-full overflow-hidden">
       {
         isSuccess && <Confetti
         width={800}

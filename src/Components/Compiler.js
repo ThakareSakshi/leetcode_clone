@@ -18,7 +18,7 @@ const Compiler = () => {
         dispatch(setInputCode(newcode))
     }
   return (
-    <div className="overlay  overflow-hidden w-full  shadow-4xl m-2 rounded-lg">
+    <div className="overlay  overflow-scroll w-full  shadow-4xl m-2 rounded-lg ">
       <div className='p-1 bg-[#262626] w-full'>
         <span className='text-white font-normal text-sm px-2'><i className="fa-solid fa-code text-green-500"></i> Code</span>
         <select className='bg-inherit text-gray-400 mx-3'>

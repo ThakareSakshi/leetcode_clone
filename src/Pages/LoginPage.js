@@ -23,6 +23,7 @@ const LoginPage = () => {
            if(res){
                toast.success("login successfully !",{position:"top-center", autoClose:3000})
                  dispatch(setIsLogin(true));
+                 localStorage.setItem("login",true);
                  dispatch(setCurrentUser(res))
                  navigate("/")
 
