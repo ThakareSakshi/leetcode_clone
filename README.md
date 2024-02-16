@@ -7,6 +7,37 @@ Checkout Project Here:[click here](https://leetcode-clone-five.vercel.app/)
 - TailwindCSS
 - Firebase
 - Judge0
+  
+## UI of Project
+
+
+![Screenshot 2024-02-12 131504](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/7745c03c-606b-488b-8388-f1f0d0627f77)
+
+#### Problem Description Page
+![Screenshot 2024-02-12 131441](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/91b5bb98-2f18-4abd-bc11-0fffa4a34185)
+
+#### Login
+![Screenshot 2024-02-12 131529](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/cf38dd3e-4b19-4eef-a68b-d9a05805c524)
+
+#### Create user
+![Screenshot 2024-02-12 131550](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/a2794824-bbd1-4af3-812b-c53aa4eb3b9d)
+
+#### Login to Like/ Dislike Code
+![Screenshot 2024-02-12 132150](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/1dd68824-3c46-497f-9738-5150d91b678a)
+
+#### Login to Submit Code
+user must have to login account to store their data on submission
+
+![Screenshot 2024-02-12 132202](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/152f6c14-3658-479e-a38e-a5730e905b4b)
+
+#### Timer
+user can use timer to record time  to solve problem
+![Screenshot 2024-02-12 132230](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/3c8e03de-d75e-4f9c-a4c5-a56d6d491e02)
+
+#### On Successful Submission
+
+confetti celebration on successful submission od code
+![Screenshot 2024-02-12 132511](https://github.com/ThakareSakshi/leetcode_clone/assets/86354291/34dd1793-c7a4-4a78-b6a2-c443fba723b1)
 
 ## Getting Started with Create React App
 
