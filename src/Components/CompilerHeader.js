@@ -172,7 +172,7 @@ const CompilerHeader = () => {
     }
   }
   return (
-    <div className="p-2 flex justify-between w-full overflow-x-scroll ">
+    <div className="p-2 flex justify-between w-full  ">
 
       <div className="flex gap-4 items-center text-white font-light">
         <img src="/leetcode.png" className="h-8" />
