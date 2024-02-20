@@ -245,7 +245,7 @@ const ProblemStatement = ({ id }) => {
  
 
   return (
-    <div className="m-2 rounded-lg bg-[#262626] overflow-hidden min-w-[310px]">
+    <div className=" rounded-lg bg-[#262626] overflow-hidden min-w-[310px]">
     <div className="p-1 bg-[#333333] text-white px-2"> Description</div>
     <div className=" bg-[#262626] p-2  rounded-lg overflow-y-scroll ">
       
