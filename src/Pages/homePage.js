@@ -8,7 +8,9 @@ const HomePage = () => {
     <div>
       <Header/>
       {/* <Dummy/> */}
+      
       <ProblemList/>
+      
     </div>
   )
 }

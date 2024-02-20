@@ -3,7 +3,7 @@ export const problemDesc=[
         id:1,
         title:"1.Two Sum",
         difficulty:"Easy",
-        solution:"",
+        solution:"https://medium.com/@AlexanderObregon/solving-the-two-sum-problem-on-leetcode-c-answer-s-walkthrough-0aa8b87875e9",
         topics:["Array", "Hash Table"],
         description:'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
         examples:[

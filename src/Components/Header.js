@@ -29,16 +29,13 @@ const logout=()=>{
   })
 }
   return (
-    <nav className="p-2 bg-[#1A1A1A] flex  gap-4 items-center justify-between px-20">
+    <nav className="p-2 bg-[#282828] flex  gap-4 items-center justify-between px-20">
       <div className="flex items-center">
         <img src="leetcode.png" className="h-10 px-2" alt="leetcode logo" />
         <span className="text-white font-semibold text-xl"></span>
         <ul className="flex  gap-6 text-white">
-        <li>Explore</li>
-        <li>Problem</li>
-        <li>contest</li>
-        <li>discuss</li>
-        <li>Interview</li>
+        <li>Leetcode</li>
+        
       </ul>
       </div>
     

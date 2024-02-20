@@ -24,11 +24,11 @@ const ProblemRow = (props) => {
     }
 
   return (
-    <tr className='p-6 m-2 w-full even:bg-[#2A2A2A] cursor-pointer' onClick={clickEventHandler}>
-        <td className='p-3 text-sm'>{props.id}</td>
-        <td className='p-3 text-sm' >{props.title}</td>
-        <td className='p-3 text-sm'>solution</td>
-        <td className='p-3 text-sm' style={{color:color}}>{props.difficulty}</td>
+    <tr className=' m-2 w-full even:bg-[#2A2A2A] cursor-pointer' onClick={clickEventHandler}>
+        <td className='p-4 text-sm'>{props.id}</td>
+        <td className='p-4 text-sm' >{props.title}</td>
+        <td className='p-4 text-sm'><a href={props.solution}>solution</a></td>
+        <td className='p-4 text-sm' style={{color:color}}>{props.difficulty}</td>
         
     </tr>
   )
