@@ -5,6 +5,8 @@ import { setCurrentProblem } from '../store/compilerSlice';
 
 
 const ProblemRow = (props) => {
+
+  
     const [color,setcolor]=useState("green");
     const navigate=useNavigate();
     const dispatch=useDispatch();
@@ -15,8 +17,10 @@ const ProblemRow = (props) => {
         setcolor("red");
      }else if(props.difficulty=="Medium"){
          setcolor("#FFA116")
+     }else if(props.difficulty=="Easy"){
+      setcolor("green")
      }
-   },[])
+   })
 
     const clickEventHandler=()=>{
       dispatch(setCurrentProblem(props.id));

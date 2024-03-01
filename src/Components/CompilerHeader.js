@@ -85,8 +85,10 @@ const CompilerHeader = () => {
   const resetTimer=()=>{
     setTime(0);
   }
+
+
   const RunCode=async()=>{
-    console.log(isLogin)
+   
     if(isLogin== false ){
         toast.error("you must be login to run code",{position:"top-center", autoClose:3000});
     }else{

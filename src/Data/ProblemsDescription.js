@@ -158,8 +158,9 @@ export const problemDesc=[
         defaultCode:`var findMedianSortedArrays = function(nums1, nums2) {
     
         };
-        console.log(findMedianSortedArrays([1,3],[2]))`,
-        stdOutput:"2.00000"
+        console.log(findMedianSortedArrays([1,3],[2]))
+        console.log(findMedianSortedArrays([1,2],[3,4]))`,
+        stdOutput:"2\n2.5\n"
         
     },
     {
