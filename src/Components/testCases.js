@@ -14,7 +14,7 @@ const TestCases = () => {
     const isSuccess=useSelector((state)=>state.compiler.isSuccess)
     const dispatch=useDispatch();
     const [testcase,setTestCase]=useState(0);
-    console.log("data",data)
+  
 
    
   return (
@@ -27,7 +27,7 @@ const TestCases = () => {
        <div className='flex gap-2 bg-[#262626] p-3'>
         {
           data[0].examples.map((test,index)=>{
-             return  <Case index={index} {...test} setTestCase={setTestCase}/> })
+             return  <Case key={"c"+index} index={index} {...test} setTestCase={setTestCase}/> })
         }
        </div>
        <div className='text-white bg-[#262626] p-2'>
@@ -36,7 +36,8 @@ const TestCases = () => {
          <span>Output:</span>
          <div className='bg-[#333333] rounded-md p-2 my-1'>{data[0].examples[testcase].output}</div>
        </div>
-      <textarea value={outputtext} className='w-full  bg-[#262626] text-white h-auto min-h-40' readOnly="readOnly"></textarea>
+       <textarea value={outputtext} className='w-full  bg-[#262626] outline-none  text-red-500' readOnly="readOnly"></textarea>
+      
     </div>
   )
 }

@@ -33,7 +33,42 @@ export const problemDesc=[
         defaultCode:`function TwoSum(nums,target){
 
         }
-        console.log(TwoSum([2,7,11,15],9))`,
+       `,
+        handlerFunction:(fn) => {
+            
+            try {
+                const nums = [
+                    [2, 7, 11, 15],
+                    [3, 2, 4],
+                    [3, 3],
+                ];
+        
+                const targets = [9, 6, 6];
+                const answers = [
+                    [0, 1],
+                    [1, 2],
+                    [0, 1],
+                ];
+        
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i], targets[i]);
+                   
+                 
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        
+                       return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                       
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+               
+                return error;
+            }
+        },
         stdOutput:"[ 0, 1 ]\n"
         
         
@@ -69,11 +104,42 @@ export const problemDesc=[
                 desc:"It is guaranteed that the list represents a number that does not have leading zeros."
             }
         ],
-        defaultCode:`var addTwoNumbers = function(l1, l2) {
+        defaultCode:`function addTwoNumbers(l1, l2) {
     
         };
         
-        console.log(addTwoNumbers([2,4,3],[5,6,4]))`,
+       `,
+        handlerFunction:(fn) => {
+           
+            try {
+                const nums = [
+                    [2,4,3],
+                    [0],
+                    [9,9,9,9,9,9,9],
+                ];
+        
+                const targets = [[5,6,4], [0], [9,9,9,9]];
+                const answers = [
+                    [7,0,8],
+                    [0],
+                    [8,9,9,9,0,0,0,1],
+                ];
+        
+                // loop all tests to check if the user's code is correct
+                for (let i = 0; i < nums.length; i++) {
+                    // result is the output of the user's function and answer is the expected output
+                    const result = fn(nums[i], targets[i]);
+                    // assert.deepStrictEqual(result, answers[i]);
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"[ 7, 0, 8 ]\n"
         
         
@@ -108,10 +174,41 @@ export const problemDesc=[
            
         ],
        
-        defaultCode:`var lengthOfLongestSubstring = function(s) {
+        defaultCode:`function lengthOfLongestSubstring(s) {
     
         };
-        console.log(lengthOfLongestSubstring('abcabcbb'))`,
+        `,
+        handlerFunction:(fn) => {
+            // fn is the callback that user's code is passed into
+            try {
+                const nums = [
+                    "abcabcbb",
+                    "bbbbb",
+                    "pwwkew",
+                ];
+        
+                
+                const answers = [
+                    3,
+                  1,
+                  3,
+                ];
+        
+                // loop all tests to check if the user's code is correct
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i]);
+                    
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"3"
         
         
@@ -155,11 +252,40 @@ export const problemDesc=[
             },
            
         ],
-        defaultCode:`var findMedianSortedArrays = function(nums1, nums2) {
+        defaultCode:`function findMedianSortedArrays(nums1, nums2) {
     
         };
-        console.log(findMedianSortedArrays([1,3],[2]))
-        console.log(findMedianSortedArrays([1,2],[3,4]))`,
+        `,
+        handlerFunction:(fn) => {
+          
+            try {
+                const nums = [
+                    [1,3],
+                    [1,2],
+                   
+                ];
+        
+                const targets = [ [2],
+                [3,4]];
+                const answers = [
+                    2.00000,2.50000
+                ];
+        
+                
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i], targets[i]);
+                    
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"2\n2.5\n"
         
     },
@@ -190,10 +316,10 @@ export const problemDesc=[
             
            
         ],
-        defaultCode:`var longestPalindrome = function(s) {
+        defaultCode:`function longestPalindrome(s) {
     
         };
-        console.log(longestPalindrome("babad"))`,
+        `,
         stdOutput:"bab"
         
     },
@@ -227,10 +353,39 @@ export const problemDesc=[
             
            
         ]
-        ,defaultCode:`var reverse = function(x) {
+        ,defaultCode:`function reverse(x) {
     
         };
-        console.log(reverse(123))`,
+        `,
+        handlerFunction:(fn) => {
+            
+            try {
+                const nums = [
+                    123,
+                    -321,
+                    120,
+                ];
+        
+               
+                const answers = [
+                    321,-321,21
+                ];
+        
+                
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i]);
+                    
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"321"
         
     },
@@ -262,10 +417,37 @@ export const problemDesc=[
            
            
         ],
-        defaultCode:`var isPalindrome = function(x) {
+        defaultCode:`function isPalindrome(x) {
     
         };
-        console.log(isPalindrome(121))`,
+        `,
+        handlerFunction:(fn) => {
+            // fn is the callback that user's code is passed into
+            try {
+                const nums = [
+                    121,-121,10
+                ];
+        
+                
+                const answers = [
+                    true,false,false
+                ];
+        
+                // loop all tests to check if the user's code is correct
+                for (let i = 0; i < nums.length; i++) {
+                   
+                    const result = fn(nums[i]);
+                   
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"true"
         
     },
@@ -304,10 +486,39 @@ export const problemDesc=[
             },
             
         ],
-        defaultCode:`var maxArea = function(height) {
+        defaultCode:`function maxArea(height) {
     
         };
-        console.log(maxArea([1,8,6,2,5,4,8,3,7]))`,
+        `,
+        handlerFunction:(fn) => {
+            // fn is the callback that user's code is passed into
+            try {
+                const nums = [
+                    [1,8,6,2,5,4,8,3,7]
+                    [1,1]
+                    
+                ];
+        
+                
+                const answers = [
+                   49,1
+                ];
+        
+                // loop all tests to check if the user's code is correct
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i]);
+                 
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"49"
         
     },
@@ -352,10 +563,36 @@ export const problemDesc=[
             }
             
            
-        ],defaultCode:`var intToRoman = function(num) {
+        ],defaultCode:`function intToRoman(num) {
     
         };
-        console.log(intToRoman(3))`,
+        `,
+        handlerFunction:(fn) => {
+          
+            try {
+                const nums = [
+                  3,58,1994
+                ]
+                
+                const answers = [
+                    "III","LVIII","MCMXCIV"
+                ];
+        
+                // loop all tests to check if the user's code is correct
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i]);
+                 
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"III"
         
     },
@@ -367,15 +604,15 @@ export const problemDesc=[
         topics:["Hash Table","String","Math"],
         description:`Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
-        Symbol       Value
-        I             1
-        V             5
-        X             10
-        L             50
-        C             100
-        D             500
-        M             1000
-        For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+         Symbol      Value
+          I          1
+          V           5
+          X          10
+          L          50
+          C          100
+          D           500
+          M           1000
+         For exmple, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
         
         Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
         
@@ -406,10 +643,37 @@ export const problemDesc=[
             
         ],
         defaultCode:`
-        var romanToInt = function(s) {
+        function romanToInt(s) {
     
         };
-        console.log(romanToInt("III"))`,
+       `,
+        handlerFunction:(fn) => {
+          
+            try {
+                const nums = [
+                  "III","LVIII","MCMXCIV"
+                ];
+        
+               
+                const answers = [
+                    3,58,1994
+                ];
+        
+               
+                for (let i = 0; i < nums.length; i++) {
+                   
+                    const result = fn(nums[i]);
+                    
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"3"
         
     },
@@ -445,10 +709,41 @@ export const problemDesc=[
            
            
         ],
-        defaultCode:`var longestCommonPrefix = function(strs) {
+        defaultCode:`function longestCommonPrefix(strs) {
     
         };
-        console.log(longestCommonPrefix(["flower","flow","flight"]))`,
+        `,
+        handlerFunction:(fn) => {
+            
+            try {
+                const nums = [
+                    ["flower","flow","flight"]
+                    ["dog","racecar","car"],
+                  
+                ];
+        
+                
+                const answers = [
+                    "fl",""
+                ];
+        
+                
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i]);
+                   
+                    if(result!==answers[i]){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
+
+       
         stdOutput:"fl"
         
     },
@@ -481,10 +776,41 @@ export const problemDesc=[
            
            
         ]
-        ,defaultCode:`var threeSum = function(nums) {
+        ,defaultCode:`function threeSum(nums) {
     
         };
-        console.log(threeSum([-1,0,1,2,-1,-4]))`,
+        `,
+        handlerFunction:(fn) => {
+            
+            try {
+                const nums = [
+                    [-1,0,1,2,-1,-4],
+                    [0,1,1],
+                    [0,0,0]
+                ];
+        
+                
+                const answers = [
+                    [[-1,-1,2],[-1,0,1]],
+                    [],
+                    [[0,0,0]]
+                ];
+        
+               
+                for (let i = 0; i < nums.length; i++) {
+                    
+                    const result = fn(nums[i]);
+                   
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                    }
+                }
+                return true;
+            } catch (error) {
+                console.log("twoSum handler function error");
+                return error;
+            }
+        },
         stdOutput:"[[-1,-1,2],[-1,0,1]]",
         
     },

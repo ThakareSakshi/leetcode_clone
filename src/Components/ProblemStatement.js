@@ -17,6 +17,7 @@ import app, { auth } from "../Data/firebase";
 import { getFirestore } from "firebase/firestore";
 import { setAllProblemsData, setInputCode, setOutputCode, setStdOutput } from "../store/compilerSlice";
 import { setUserData } from "../store/AuthSlice";
+import Submissions from "./Submissions";
 // import { useAuthState } from "react-firebase-hooks";
 
 const ProblemStatement = ({ id }) => {
@@ -27,6 +28,7 @@ const ProblemStatement = ({ id }) => {
   const currentProblemId = useSelector((state) => state.compiler.currentProblem ).toString();
   const isLogin = useSelector((state) => state.auth.isLogin);
   const data = problemDesc.filter((data) => data.id == currentProblemId);
+  const [display,setdisplay]=useState(false);
   dispatch(setStdOutput(data[0].stdOutput));
   
   
@@ -57,7 +59,6 @@ const ProblemStatement = ({ id }) => {
         querySnapshot.forEach((doc) => {
           dispatch(setAllProblemsData(doc.data()));
 
-          console.log(doc.id, " => ", doc.data());
         });
       };
       getDataFromDb();
@@ -72,6 +73,7 @@ const ProblemStatement = ({ id }) => {
         console.log(e);
       }
     }
+    dispatch(setOutputCode(""));
   }, [currentProblemId]);
 
   //----------------getuserdata----------------------
@@ -242,11 +244,14 @@ const ProblemStatement = ({ id }) => {
     dispatch(setUserData(Udata));
   };
 
- 
+ const displaySolution=()=> {
+          setdisplay(!display);
+ }
 
   return (
     <div className=" rounded-lg bg-[#262626] overflow-hidden min-w-[310px] max-md:min-w-full">
-    <div className="p-1 bg-[#333333] text-white px-2"> Description</div>
+    <div className="p-1 bg-[#333333] text-white px-4 cursor-pointer"> <span className="text-purple-400">Description</span><span className="px-3" onClick={displaySolution}>Submissions</span></div>
+   {display? <Submissions/>:null}
     <div className=" bg-[#262626] p-2  rounded-lg overflow-y-scroll ">
       
       <h1 className="text-2xl font-bold text-white m-2">{data[0].title}</h1>
@@ -277,7 +282,7 @@ const ProblemStatement = ({ id }) => {
 
       {/* ------------examples-------------------- */}
       {data[0].examples.map((ex, index) => (
-        <Example index={index} {...ex} />
+        <Example index={"e"+index+1} {...ex} />
       ))}
 
       {/* ---------constraints----------------  */}

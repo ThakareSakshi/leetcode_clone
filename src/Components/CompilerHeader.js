@@ -7,6 +7,8 @@ import { getFirestore,runTransaction ,doc,
   getDoc,
   query} from "firebase/firestore";
 import app from "../Data/firebase";
+import {problemDesc} from "../Data/ProblemsDescription"
+import ld from "lodash"
 
 
 
@@ -24,8 +26,11 @@ const CompilerHeader = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [time,setTime]=useState(0);
   const [showTimer,setShowTimer]=useState(false);
+
+  const problem=problemDesc.filter(problem=> problem.id ==currentProblemId);
+  const handlerFunction=problem[0].handlerFunction;
  
- console.log(typeof isLogin)
+ 
 
   const increment=()=>{
     const count=currentProblemId+1;
@@ -91,86 +96,66 @@ const CompilerHeader = () => {
    
     if(isLogin== false ){
         toast.error("you must be login to run code",{position:"top-center", autoClose:3000});
-    }else{
-      const response = await fetch(
-        "https://judge0-ce.p.rapidapi.com/submissions",
-        {
-          method: "POST",
-          headers: {
-            "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
-            "x-rapidapi-key": "cf4d5e6099msh4319fd91e2cfce2p110419jsnb558428ce19d", // Get yours for free at https://rapidapi.com/judge0-official/api/judge0-ce/
-            "content-type": "application/json",
-            accept: "application/json",
-          },
-          body: JSON.stringify({
-            source_code: inputcode,
-            stdin:"",
-            language_id:63 ,
-          }),
+     }
+     try{
+     
+      const cb = new Function(`return ${inputcode}`)();
+     
+			const handler =handlerFunction;
+      
+
+      if(typeof handler==="function"){
+        let result=handler(cb);
+        
+        if(result===true){
+        toast.success("compiled successFully");
+          
         }
-      );
-
-      // outputText.innerHTML += "Submission Created ...\n";
-      dispatch(setOutputCode(outputText+"Submission Created ...\n"))
-      const jsonResponse = await response.json();
-
-      console.log(jsonResponse)
-      let jsonGetSolution = {
-        status: { description: "Queue" },
-        stderr: null,
-        compile_output: null,
-      };
-      while (
-        jsonGetSolution.status.description !== "Accepted" &&
-        jsonGetSolution.stderr == null &&
-        jsonGetSolution.compile_output == null
-      ) {
-        // outputText.innerHTML = ;
-        dispatch(setOutputCode(`Creating Submission ... \nSubmission Created ...\nChecking Submission Status\nstatus : ${jsonGetSolution.status.description}`))
-        if (jsonResponse.token) {
-          let url = `https://judge0-ce.p.rapidapi.com/submissions/${jsonResponse.token}?base64_encoded=true`;
-          const getSolution = await fetch(url, {
-            method: "GET",
-            headers: {
-              "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
-              "x-rapidapi-key": "cf4d5e6099msh4319fd91e2cfce2p110419jsnb558428ce19d", // Get yours for free at https://rapidapi.com/judge0-official/api/judge0-ce/
-              "content-type": "application/json",
-            },
-          });
-          jsonGetSolution = await getSolution.json();
-          console.log(jsonGetSolution);
+        else{
+          dispatch(setOutputCode(result));
+          toast.error(result,{position:"top-center", autoClose:3000});
+         
         }
       }
+    }catch(e){
+      console.log(e);
+    }
       
-      if (jsonGetSolution.stdout) {
-        const output = atob(jsonGetSolution.stdout);
-        console.log(output,stdOut)
-        console.log(output===stdOut)
-        if(output==stdOut){
+     }
+  
+
+  const submitCode=()=>{
+    if(isLogin== false ){
+      toast.error("you must be login to run code",{position:"top-center", autoClose:3000});
+  }
+    try{
+      console.log("code submitted");
+      const cb = new Function(`return ${inputcode}`)();
+      console.log(cb);
+			const handler =handlerFunction;
+      console.log("type of handler",typeof handler)
+
+      if(typeof handler==="function"){
+        let result=handler(cb);
+        console.log(result);
+        if(result===true){
+          console.log("compiled Successfully");
           onSolved();
           dispatch(setIsSuccess(true));
           setTimeout(()=>{
             dispatch(setIsSuccess(false))
-          },10000)
-          
+          },10000);
+          localStorage.setItem(currentProblemId,JSON.stringify(inputcode));
         }
-       dispatch(setOutputCode(`Results :\n ${output} \n Execution Time : ${jsonGetSolution.time} Secs \n Memory used : ${jsonGetSolution.memory} bytes`))
-      } else if (jsonGetSolution.stderr) {
-        const error = atob(jsonGetSolution.stderr);
-       
-        dispatch(setOutputCode( `\n Error :${error}`))
-      } else {
-        const compilation_error = atob(jsonGetSolution.compile_output);
-      
-        dispatch(setOutputCode(`\n Error :${compilation_error}`));
+        else{
+          dispatch(setOutputCode(result));
+          toast.error(result,{position:"top-center", autoClose:3000});
+         
+        }
       }
-     };
-    }
-  
-
-  const submitCode=()=>{
-    if(!isLogin){
-        toast.error("login to submit code");
+    }catch(e){
+      console.log(e);
+      dispatch(setOutputCode(e));
     }
   }
   return (
@@ -186,7 +171,7 @@ const CompilerHeader = () => {
 
       <div className="flex gap-4">
         <button  className="px-2 text-white p-1 rounded-md bg-[#262626]" onClick={RunCode}><i className="fa-solid fa-play"></i> Run</button>
-        <button className="px-2 text-green-700 p-1 rounded-md bg-[#262626]" onClick={RunCode}><i className="fa-solid fa-cloud-arrow-up"></i> Submit</button>
+        <button className="px-2 text-green-700 p-1 rounded-md bg-[#262626]" onClick={submitCode}><i className="fa-solid fa-cloud-arrow-up"></i> Submit</button>
         <button className="px-2 text-gray-500 p-1 rounded-md bg-[#262626] flex items-center gap-2">
           {
             
