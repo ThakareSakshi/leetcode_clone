@@ -6,7 +6,7 @@ Checkout Project Here:[click here](https://leetcode-clone-five.vercel.app/)
 - ReactJS
 - TailwindCSS
 - Firebase
-- Judge0
+- Redux
   
 ## UI of Project
 
