@@ -131,7 +131,7 @@ export const problemDesc=[
                     const result = fn(nums[i], targets[i]);
                     // assert.deepStrictEqual(result, answers[i]);
                     if(JSON.stringify(result)!==JSON.stringify(answers[i])){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -200,7 +200,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                     
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -277,7 +277,7 @@ export const problemDesc=[
                     const result = fn(nums[i], targets[i]);
                     
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -377,7 +377,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                     
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -439,7 +439,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                    
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -510,7 +510,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                  
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -584,7 +584,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                  
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -665,7 +665,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                     
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -733,7 +733,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                    
                     if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
@@ -802,7 +802,7 @@ export const problemDesc=[
                     const result = fn(nums[i]);
                    
                     if(JSON.stringify(result)!==JSON.stringify(answers[i])){
-                        return "test case: "+i+" failed \n expected answer : "+answers+"\n your output : "+result;
+                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
                     }
                 }
                 return true;
