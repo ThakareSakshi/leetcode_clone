@@ -74,7 +74,7 @@ const ProblemStatement = ({ id }) => {
       }
     }
     dispatch(setOutputCode(""));
-  }, [currentProblemId]);
+  }, [currentProblemId,AllProblemsData]);
 
   //----------------getuserdata----------------------
   const getUsersDataOnProblem = async () => {
@@ -108,7 +108,7 @@ const ProblemStatement = ({ id }) => {
     }
 
     try {
-      console.log("like clicked", user.user.uid);
+      
 
       await runTransaction(db, async (transaction) => {
         const userRef = doc(db, "users", user.user.uid);
@@ -177,7 +177,7 @@ const ProblemStatement = ({ id }) => {
           }
         }
       });
-      console.log("Transaction successfully committed!");
+      
     } catch (e) {
       console.log("Transaction failed: ", e);
     }
@@ -194,7 +194,7 @@ const ProblemStatement = ({ id }) => {
     }
 
     try {
-      console.log("like clicked", user.user.uid);
+      
 
       await runTransaction(db, async (transaction) => {
         const userRef = doc(db, "users", user.user.uid);
@@ -205,39 +205,43 @@ const ProblemStatement = ({ id }) => {
           throw "Document does not exist!";
         } else {
           if (disliked) {
+            
+          
             transaction.update(userRef, {
-              dislikedProblems: userDoc.data().dislikedProblems.filter((id) => id !==currentProblemId),
+              dislikedProblems: userDoc.data().dislikedProblems.filter((id) => id !== currentProblemId),
             });
             transaction.update(problemRef, {
-              dislike: parseInt(problemDoc.data().dislike) - 1,
+              dislike: (parseInt(problemDoc.data().dislike) - 1),
             });
-            setAllProblemsData( { ...AllProblemsData, dislike: parseInt(AllProblemsData.dislike )- 1 });
+            setAllProblemsData( { ...AllProblemsData, dislike:(parseInt(AllProblemsData.dislike )- 1 )});
             setUData((prev) => ({ ...prev, disliked: false }));
           } else if (liked) {
+           
             transaction.update(userRef, {
               dislikedProblems: [...userDoc.data().dislikedProblems, currentProblemId],
               likedProblems: userDoc.data().likedProblems.filter((id) => id !== currentProblemId),
             });
             transaction.update(problemRef, {
-              dislike: parseInt(problemDoc.data().dislike) + 1,
-              like: parseInt(problemDoc.data().like) - 1,
+              dislike: (parseInt(problemDoc.data().dislike) + 1),
+              like: (parseInt(problemDoc.data().like) - 1),
             });
-            setAllProblemsData({ ...AllProblemsData, dislike: parseInt(AllProblemsData.dislike) + 1, like: parseInt(AllProblemsData.like) - 1 }
+            setAllProblemsData({ ...AllProblemsData, dislike: (parseInt(AllProblemsData.dislike) + 1), like: (parseInt(AllProblemsData.like) - 1) }
             );
             setUData((prev) => ({ ...prev, disliked: true, liked: false }));
           } else {
+          
             transaction.update(userRef, {
               dislikedProblems: [...userDoc.data().dislikedProblems,currentProblemId],
             });
             transaction.update(problemRef, {
-              dislike: parseInt(problemDoc.data().dislike) + 1,
+              dislike: (parseInt(problemDoc.data().dislike) + 1),
             });
-            setAllProblemsData( { ...AllProblemsData, dislike: parseInt(AllProblemsData.dislike) + 1 } );
+            setAllProblemsData( { ...AllProblemsData, dislike:(parseInt(AllProblemsData.dislike) + 1) } );
             setUData((prev) => ({ ...prev, disliked: true }));
           }
         }
       });
-      console.log("Transaction successfully committed!");
+     
     } catch (e) {
       console.log("Transaction failed: ", e);
     }
