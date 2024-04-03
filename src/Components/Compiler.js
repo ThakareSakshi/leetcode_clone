@@ -45,7 +45,7 @@ const Compiler = () => {
   <Editor
         height="50vh"
         width={`100%`}
-        language={"java"}
+        language={"javascript"}
         value={inputCode}
         theme='myTheme'
         defaultValue={" "}

@@ -18,6 +18,8 @@ import { getFirestore } from "firebase/firestore";
 import { setAllProblemsData, setInputCode, setOutputCode, setStdOutput } from "../store/compilerSlice";
 import { setUserData } from "../store/AuthSlice";
 import Submissions from "./Submissions";
+import { ProblemsContext } from "../Context/CompilerContext";
+import { useContext } from "react";
 // import { useAuthState } from "react-firebase-hooks";
 
 const ProblemStatement = ({ id }) => {
@@ -30,6 +32,9 @@ const ProblemStatement = ({ id }) => {
   const data = problemDesc.filter((data) => data.id == currentProblemId);
   const [display,setdisplay]=useState(false);
   dispatch(setStdOutput(data[0].stdOutput));
+  
+
+  const testCTx=useContext(ProblemsContext)
   
   
   const [color, setColor] = useState("red");
@@ -50,7 +55,7 @@ const ProblemStatement = ({ id }) => {
       } else {
         setColor("red");
       }
-      dispatch(setInputCode(data[0].defaultCode))
+     
 
       const getDataFromDb = async () => {
         const q = query(collection(db, "problems"),where("id", "==", currentProblemId));
@@ -75,6 +80,12 @@ const ProblemStatement = ({ id }) => {
     }
     dispatch(setOutputCode(""));
   }, [currentProblemId,AllProblemsData]);
+
+  useEffect(()=>{
+    dispatch(setInputCode(data[0].defaultCode))
+    testCTx.setTestResult([]);
+
+  },[currentProblemId])
 
   //----------------getuserdata----------------------
   const getUsersDataOnProblem = async () => {
@@ -286,7 +297,7 @@ const ProblemStatement = ({ id }) => {
 
       {/* ------------examples-------------------- */}
       {data[0].examples.map((ex, index) => (
-        <Example index={"e"+index+1} {...ex} />
+        <Example key={"e"+index} index={index+1} {...ex} />
       ))}
 
       {/* ---------constraints----------------  */}
@@ -295,7 +306,7 @@ const ProblemStatement = ({ id }) => {
         <ul className="list-disc text-white li">
           {data[0].constraints.map((constraint) => {
             return (
-              <li className=" m-2  text-white text-sm bg-neutral-700 rounded-md px-2 w-fit list-item">
+              <li className=" m-2  text-white text-sm bg-neutral-700 rounded-md px-2 w-fit list-item" key={constraint.desc+1}>
                 {constraint.desc}
               </li>
             );

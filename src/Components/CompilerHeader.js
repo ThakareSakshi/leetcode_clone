@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch,useSelector} from "react-redux";
 import { setCurrentProblem, setIsSuccess, setOutputCode } from "../store/compilerSlice";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { getFirestore,runTransaction ,doc,
 import app from "../Data/firebase";
 import {problemDesc} from "../Data/ProblemsDescription"
 import ld from "lodash"
+import { ProblemsContext } from "../Context/CompilerContext";
 
 
 
@@ -29,6 +30,7 @@ const CompilerHeader = () => {
 
   const problem=problemDesc.filter(problem=> problem.id ==currentProblemId);
   const handlerFunction=problem[0].handlerFunction;
+  const testCtx=useContext(ProblemsContext);
  
  
 
@@ -106,7 +108,7 @@ const CompilerHeader = () => {
 
       if(typeof handler==="function"){
         let result=handler(cb);
-        
+        testCtx.setTestResult(result);
         if(result===true){
         toast.success("compiled successFully");
           
@@ -124,16 +126,16 @@ const CompilerHeader = () => {
      }
   
 
-  const submitCode=()=>{
+  const submitCode=async ()=>{
     if(isLogin== false ){
       toast.error("you must be login to run code",{position:"top-center", autoClose:3000});
   }
     try{
       console.log("code submitted");
-      const cb = new Function(`return ${inputcode}`)();
+      const cb =await new Function(`return ${inputcode}`)();
       console.log(cb);
-			const handler =handlerFunction;
-      console.log("type of handler",typeof handler)
+			const handler = handlerFunction;
+      console.log("type of handler :",typeof handler)
 
       if(typeof handler==="function"){
         let result=handler(cb);

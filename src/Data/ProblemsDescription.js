@@ -49,7 +49,7 @@ export const problemDesc=[
                     [1, 2],
                     [0, 1],
                 ];
-        
+                   const ans=[]
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i], targets[i]);
@@ -57,12 +57,13 @@ export const problemDesc=[
                  
                     if(JSON.stringify(result)!==JSON.stringify(answers[i])){
                       
-                        
-                       return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
                        
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                
@@ -124,17 +125,20 @@ export const problemDesc=[
                     [0],
                     [8,9,9,9,0,0,0,1],
                 ];
-        
+                const ans=[]
                 // loop all tests to check if the user's code is correct
                 for (let i = 0; i < nums.length; i++) {
                     // result is the output of the user's function and answer is the expected output
                     const result = fn(nums[i], targets[i]);
-                    // assert.deepStrictEqual(result, answers[i]);
                     if(JSON.stringify(result)!==JSON.stringify(answers[i])){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -193,17 +197,21 @@ export const problemDesc=[
                   1,
                   3,
                 ];
-        
+                const ans=[]
                 // loop all tests to check if the user's code is correct
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i]);
                     
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -271,16 +279,20 @@ export const problemDesc=[
                     2.00000,2.50000
                 ];
         
-                
+                const ans=[]
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i], targets[i]);
                     
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -371,16 +383,20 @@ export const problemDesc=[
                     321,-321,21
                 ];
         
-                
+                const ans=[]
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i]);
                     
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -432,17 +448,21 @@ export const problemDesc=[
                 const answers = [
                     true,false,false
                 ];
-        
+                const ans=[]
                 // loop all tests to check if the user's code is correct
                 for (let i = 0; i < nums.length; i++) {
                    
                     const result = fn(nums[i]);
                    
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -503,17 +523,22 @@ export const problemDesc=[
                 const answers = [
                    49,1
                 ];
+                const ans=[]
         
                 // loop all tests to check if the user's code is correct
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i]);
                  
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -577,17 +602,21 @@ export const problemDesc=[
                 const answers = [
                     "III","LVIII","MCMXCIV"
                 ];
-        
+                const ans=[]
                 // loop all tests to check if the user's code is correct
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i]);
                  
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -659,16 +688,20 @@ export const problemDesc=[
                     3,58,1994
                 ];
         
-               
+                const ans=[]
                 for (let i = 0; i < nums.length; i++) {
                    
                     const result = fn(nums[i]);
                     
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -727,16 +760,20 @@ export const problemDesc=[
                     "fl",""
                 ];
         
-                
+                const ans=[]
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i]);
                    
-                    if(result!==answers[i]){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                    if(JSON.stringify(result)!==JSON.stringify(answers[i])){
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
                 return error;
@@ -796,19 +833,23 @@ export const problemDesc=[
                     [[0,0,0]]
                 ];
         
-               
+                const ans=[]
                 for (let i = 0; i < nums.length; i++) {
                     
                     const result = fn(nums[i]);
                    
                     if(JSON.stringify(result)!==JSON.stringify(answers[i])){
-                        return "test case: "+i+" failed \n expected answer : "+answers[i]+"\n your output : "+result;
+                      
+                        ans.push({testcase:i ,output:result, status:false,expected :answers[i]});
+                      
+                       
                     }
+                   else  ans.push({testcase:i ,output:result, status:true,expected :answers[i]});
                 }
-                return true;
+                return ans;
             } catch (error) {
                 console.log("twoSum handler function error");
-                return error;
+                return {status:error};
             }
         },
         stdOutput:"[[-1,-1,2],[-1,0,1]]",
